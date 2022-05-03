@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.cardSection {
+  position: relative;
+}
+
+.card {
+  position: absolute;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
