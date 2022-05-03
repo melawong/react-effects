@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+// baseURL
+
 /** Component for card-draw game
  * state: deck, cards
  */
 function CardGame() {
-    const [deck, setDeck] = useState([]);
+    const [deck, setDeck] = useState(null);
     const [cards, setCards] = useState([]);
 
     useEffect(function getDeck() {
@@ -19,6 +21,7 @@ function CardGame() {
         createDeck();
     }, []);
 
+    //make alert nicer using component or smth (disable button)
     async function drawCard() {
         if (deck.remaining === 0) return alert("No more cards to draw!");
 
@@ -26,7 +29,7 @@ function CardGame() {
         setCards([...cards, response.data.cards[0]]);
         setDeck({...deck, ["remaining"] : response.data.remaining});
     }
-    
+    // make card component
 
     return (
         <div>
